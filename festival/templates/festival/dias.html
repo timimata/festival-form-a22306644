@@ -4,7 +4,7 @@
     
 {% for dia in dias %}
 
-<h2 style="padding:20px; background:{{dia.cor}}; color:black;">{{ dia.data|date:"d M'y" }}</h2>
+<h2 style="padding: 20px; color: black;" class="dia-header" data-color="{{ dia.cor }}">{{ dia.data|date:"d M'y" }}</h2>
 
     {% for concerto in dia.concertos.all %}
         <article class="card">
@@ -15,6 +15,12 @@
 {% endfor %}
 
 
+<script>
+document.querySelectorAll('.dia-header').forEach(header => {
+    const color = header.getAttribute('data-color');
+    header.style.backgroundColor = color;
+});
+</script>
 
 {% endblock %}
     

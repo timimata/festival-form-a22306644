@@ -1,0 +1,25 @@
+{% extends 'festival/layout.html' %}
+
+{% block content %}
+<article class="card" style="border-left-color: #d32f2f;">
+    <h2 style="color: #d32f2f;">⚠️ Apagar concerto</h2>
+    
+    <div style="background: #fce4ec; padding: 15px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #d32f2f;">
+        <p style="margin: 0;"><strong>Tem a certeza que deseja apagar este concerto?</strong></p>
+        <p style="margin: 5px 0 0 0; color: #c62828;">Esta ação não pode ser desfeita!</p>
+    </div>
+
+    <p><strong>Banda:</strong> {{ concerto.banda.nome }}</p>
+    <p><strong>Dia:</strong> {{ concerto.dia }}</p>
+    <p><strong>Hora:</strong> {{ concerto.hora }}</p>
+    <p><strong>Palco:</strong> {{ concerto.palco }}</p>
+
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <form method="post" style="margin: 0;">
+            {% csrf_token %}
+            <button type="submit" class="btn" style="background-color: #d32f2f; color: white;">Sim, apagar concerto</button>
+        </form>
+        <a href="{% url 'concerto' concerto.id %}" class="btn" style="background-color: #757575;">Cancelar</a>
+    </div>
+</article>
+{% endblock %}

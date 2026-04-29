@@ -1,3 +1,1 @@
-# festival
-
-Descreva aqui as alterações/correções que fez
+Esta linha define a ordem dos concertos: primeiro por data do dia, depois por hora. 
